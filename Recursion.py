@@ -24,3 +24,5 @@ def cube(i):
 print(cube(2))
 res=cube(3)
 print(res)
+
+print("hello world")
