@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shopping Plus</title>
+<style>
+
+*{box-sizing:border-box
+}
+
+/*style the body*/
+body{margin:0; font-family:Arial, Helvetica, sans-serif;
+}
+
+/*Header/logo Title*/
+.header{text-align:center;
+background:#1abc9c;
+color:white;
+padding:80px;
+}
+
+/*Header image- logo for shopping site*/
+.header img{
+width:200px;
+height:100px;
+}
+
+/*Increase the font-size of the heading*/
+.header h1{font-size:40px;
+}
+
+/* Sticky-Navbar*/
+.navbar{overflow:hidden;
+background-color:#333;
+position:sticky;
+position:-webkit-sticky;
+top:0;
+}
+
+/*Style Navbar links*/ 
+.navbar a{color:white;
+text-align:center;
+padding:14px 20px;
+float:left;
+display:block;
+text-decoration:none;
+}
+
+/*search_container input[type=text]: adjusting on right side with other parameters*/
+.navbar .search_container input[type=text]{
+float:right;
+padding:6px;
+margin-top:6px;
+margin-right:16px;
+font-size: 17px;
+border:1px solid black;
+}
+
+/*search_container button: adjusting on right side with other parameters*/
+.navbar .search_container button{
+float:right;
+padding:14px;
+margin-top:7px;
+margin-right:0;
+
+}
+
+
+/*Link right side*/
+.navbar a.right{
+float:right;
+}
+
+/*Color change Hover navbar*/
+.navbar a:hover{
+background-color:#ddd;
+color:black;
+}
+
+/*Active current link:home*/
+.navbar a.active{
+color:white;
+background-color:#666;
+}
+
+/*Column container*/
+.row{
+display: -ms-flexbox; /*IE10*/
+display: flex;
+-ms-flex-wrap: wrap; /*IE10*/
+flex-wrap: wrap;
+}
+
+/*Create two unequal coloumn that sits next to each other*/
+/*side bar/left column*/
+.side{-ms-flex: 30%; /*IE10*/
+flex:30%;
+background-color:#f1f1f1;
+padding:20px;
+}
+
+/*Main bar/right column*/
+.main{
+-ms-flex:70%;
+flex:70%;
+background-color:white;
+padding:20px;
+}
+
+/*fakeimg*/
+.fakeimage{
+background-color:#aaa;
+width:100%;
+padding:20px;
+}
+
+/*Footer*/
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+width:100%
+}
+
+/*Responsive layout-when the screen is  less than 700px wide make the two column stack on top of each other instead of next to each other*/
+@media screen and (max width:700px){
+.row{
+flex-direction:column;
+}
+}
+
+/*Responsive layout- when hte screen is less than 400px wide make the nevigation link stack on top of each other insted of next to each other*/
+@media screen and (max width:400px){
+.navbar a{
+float:none;
+width:100%;
+}
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h1>Shopping Plus</h1>
+<img src="http://logo-company.in/logo/196.jpg">
+<p>A <b>Responsive</b> Ecommerce website created by me.</p>
+
+</div>
+
+<div class="navbar">
+<a href="http://www.google.com" class="active" target="_blank">Home<a/>
+<a href="http://www.google.com" target="_blank">Contact</a>
+<a href="http://www.google.com" target="_blank">Link</a>
+<a href="https://www.flipkart.com/viewcart?otracker=Cart_Icon_Click" class="right" target="_blank">Cart</a>
+<div class="search_container">
+<form action="/action_page.php">
+<input type="text" value="" name="search" placeholder="search your product....">
+<button type="submit">
+</form>
+</div>
+</div>
+
+<div class="row">
+<div class="side">
+<h2>About Me</h2>
+<h5>Photo of Me</h5>
+<div class="fakeimage" style="height:200px" >Image</div>
+<p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+<h3>More Text</h3>
+<p>Lorem ipsum dolor sit ame.</p>
+<div class="fakeimage" style="height:60px">image</div>
+<div class="fakeimage" style="height:60px">image</div>
+<div class="fakeimage" style="height:60px">image</div>
+</div>
+
+<div class="main">
+<h2>Title Heading</h2>
+<h5>Title discription, October,3,2019.</h5>
+<div class="fakeimage" style="height:200px">Image</div>
+<p>Some Text...</p>
+<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+
+<h2>Title Heading</h2>
+<h5>Title discription, October,3,2019.</h5>
+<div class="fakeimage" style="height:200px">Image</div>
+<p>Some Text...</p>
+<p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+</div>
+
+<div class="footer">
+<h3>Footer</h3>
+</div>
+
+</div>
+
+</body>
+</html>
