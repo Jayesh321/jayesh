@@ -1,6 +1,6 @@
 
 
-
+'''
 # Reversing the given string using slicing:
 text=input(" enter string:")
 Reversed = text[::-1]
@@ -104,10 +104,10 @@ def isdivisible(n):
     else:
         return False
 n=[3,9,12,15,18,22,21]
-'''
+
 l1=list(filter(isdivisibl,n))
 print(l1)
-'''
+
 l2=list(filter(lambda i:i%3==0,n))
 print(l2)
 
@@ -341,6 +341,292 @@ list=["Sunny","Bunny","Chinny","Vinny","pinny"]
 for i in range(10):
     print(choice(list))
 
+# Regular Expression:
+# If we want to represent a group of Strings according to a particular format/pattern then we should go for Regular Expressions.
+# We can write a regular expression to represent all mobile numbers, email ids
+# 1. To develop validation frameworks/validation logic
+# 2.To develop Pattern matching applications (ctrl-f in windows, grep in UNIX etc)
+# 3. To develop Translators like compilers, interpreters etc
+# 4. To develop digital circuits
+# 5. To develop communication protocols like TCP/IP, UDP etc.
+
+# We can develop Regular Expression Based applications by using python module: re
+# Demo:
+import re
+count=0
+# comile()----->used to change in to regex object
+pattern=re.compile("ab")
+matcher=pattern.finditer("aabababbbbababaaabab")
+for match in matcher:
+    count=count+1
+    print(match.start(), "....", match.end(), match.group())
+print("number of occurance",count)
+
+# We can pass pattern directly as argument to finditer() function.
+import re
+matcher=re.finditer("a", "a7bk@9dz")
+for match in matcher:
+    print(match.start(),"....", match.group())
+
+# Character class:
+#[abc] ------->Either a or b or c
+#[^abc] ------->except a or b or c
+#[a-z] ------->any lower case alphabet symbol
+#[A-Z] ------->any upper case alphabet symbol
+#[a-zA-Z] ------->Any alphabet symbol
+#[0-9] ------->any digit from 0-9
+#[a-zA-Z0-9] ------->any alpha numeric symbols
+#[^a-zA-Z0-9] ------->Except alphanumerc symbol
+
+# Pre Defined character class:
+#\s= space character
+#\S= any character except space character
+#\d= any digit from 0-9
+#\D= any character except digit
+#\w= any word character [a-zA-Z0-9]\
+#\W= any character except word character(special character)
+# . = any character including special character
+
+    # Quantifiers:
+# a= Exactly one "a"
+# a+= Atleast one "a"
+# a*= Any number of "a" including 0 number
+# a?= Atmost one "a" ie either 0 number or 1 number
+# a{m}= Exactly m number of a's
+# a{m,n}= Minimum m number of a's and maximum n number of a's
+#Note:
+# ^(argument)  It will check whether target string starts with given argument or not
+# (argument)$  It will check whether target string ends with given argument or not
+
+# Important functions of re module:
+# match() =====>It will find match only at the starting of the string or else it will return None
+import re
+n=input("enter string:")
+match=re.match(n, "learning python is easy")
+if match!=None:
+    print("Match is available at the beginning of the String")
+    print(match.start(),"....",match.end())
+else:
+    print("No match is found")
+
+# fullmatch() =======> It will match full string or else it will return None
+import re
+n=input("enter string to match:")
+s=input(" Enter big string:")
+match=re.fullmatch(n,s)
+if match!=None:
+    print("full match found")
+else:
+    print("Full string not match")
+
+# search()======> Match the given string with the targeted string if matches then fine or else returns None
+import re
+n=input("Enter string to find")
+s=input("Enter big string")
+match=re.search(n,s)
+if match!=None:
+    print("Match found at", match.start(), "ends at", match.end())
+else:
+    print("Match not found")
+
+# findall() =====>It will find all the given input ant trurn as a list of object
+import re
+n=input("Enter to find:") #----->[0-9]
+s=input("Enter big text") #----->0dfd5fdf8sf65sf4sf5679fs6f4s
+match=re.findall(n,s)
+if match!=None:
+    print("match found",match)
+else:
+    print("No match found")
+
+# finditer() ====>Returns the iterator yielding a match object for each match. On each match object we can call start(), end() and group() functions.
+import re
+n=input("Enter Iter obj to find:")
+matcher=re.finditer(n,"kjl#md2#m8@s8")
+for match in matcher:
+    if match!=None:
+        print("starts at:",match.start(),"ends at:",match.end(), "found item:", match.group())
+    else:
+        print("No match found")
+
+# sub() ====>sub means substitution or replacement =====>re.sub(regex,replacement,targetstring)
+import re
+n=input("Enter string to substitute:")
+match=re.sub(n,'#',"a5a5a8a5aa7a6aa49a")
+print(match)
+
+# subn(): ====>It is exactly same as sub except it can also returns the number of replacements.
+import re
+n=input("Enter string to substitute:")
+match=re.subn(n,"#","a5a5a8a5aa7a6aa49a")
+print(match)
+print("The Result String:",match[0])
+print("The number of replacements:",match[1])
+
+# split()
+import re
+l=re.split(",","sunny,bunny,chinny,vinny,pinny")
+print(l)
+for t in l:
+    print(t)
+
+# Note: If we want to ignore case then we have to pass 3rd argument re.IGNORECASE for search() function.
+# Eg: res = re.search("easy$",s,re.IGNORECASE)
+
+# Multithreading:--->Multitasking
+
+# Executing several tasks simultaneously where each task is a seperate independent part of the same program, is called Thread based multi tasking, and each independent part is called a Thread.
+# Main Uses: To implement Multimedia graphics, develop video games, animations, web and  application servers.
+# WAP to print name of a current thread.
+import threading
+print("current thread:", threading.current_thread().getName())
+
+# The ways of creating thread in pyhton:
+
+# 1.Creating a thread without using a class:
+from threading import *
+def display():
+    for i in range(1,11):
+        print("Child thread")
+t=Thread(target=display())
+t.start()
+for j in range(1,11):
+    print("Main thread")
+
+# 2.Creating a thread by extending thread class:
+from threading import *
+class MyThread(Thread):
+    def run(self):
+        for i in range(4):
+            print("Child thread")
+t=MyThread()
+t.start()
+for j in range(4):
+    print("Main Thread")
+
+# 3.Creating a thread without extending thread class:
+from threading import *
+class Test:
+    def display(self):
+        for i in range(5):
+            print("child thread")
+obj=Test()
+t=Thread(target=obj.display)
+t.start()
+for i in range(5):
+    print("Main thread")
+
+# Without threading:
+import time
+def doubles(n):
+    for i in n:
+        time.sleep(1)
+        print("doubles of number:", 2*i)
+def square(n):
+    for i in n:
+        time.sleep(1)
+        print("Square of number:",i*i)
+n=[1,2,3,4,5,6]
+begin_time=time.time()
+doubles(n)
+square(n)
+print("Total time taken:",time.time()-begin_time)
+
+# With threading:
+from threading import *
+import time
+def double(n):
+    time.sleep(1)
+    for i in n:
+        print("doubles",2*i)
+def square(n):
+    time.sleep(1)
+    for i in n:
+        print("square",i*i)
+n=[1,2,3,4,5,6]
+start_time=time.time()
+t1=Thread(target=double,args=(n,))
+t2=Thread(target=square,args=(n,))
+t1.start()
+t2.start()
+t1.join()
+t2.join()
+print("total time taken",time.time()-start_time)
+
+# Setting and Getting Name of a Thread:
+import threading
+print("Get Name",threading.current_thread().getName())
+# To set name:
+threading.current_thread().setName("jay")
+print("Get name", threading.current_thread().getName())
+
+# Thread Identification Number (ident):
+from threading import *
+def test():
+    print("child thread")
+t=Thread(target=test)
+t.start()
+print("Identification for main thread",current_thread().ident)
+print("Identification number for child thread", t.ident)'''
+
+# Active_count():--->Returns the of active threads currently running.
+from threading import *
+import time
+def display():
+    print(current_thread().getName(),"...started")
+    time.sleep(3)
+    print(current_thread().getName(),"...ended")
+    print("The Number of active Threads:",active_count())
+t1=Thread(target=display,name="ChildThread1")
+t2=Thread(target=display,name="ChildThread2")
+t3=Thread(target=display,name="ChildThread3")
+t1.start()
+t2.start()
+t3.start()
+print("The Number of active Threads:",active_count())
+time.sleep(5)
+print("The Number of active Threads:",active_count())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Pickling & UnPickling
+# Decorator
+# Destructor
+# active count in threading
 
 
 
