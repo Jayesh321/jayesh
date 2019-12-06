@@ -110,6 +110,7 @@ print(Test.__dict__)  #-------> To access Static variable
 
 Test.i=90   #------->  To declare Static variable out side all method
 print(Test.__dict__) #-------> To access Static variable
+# O/P : {'a':10, 'c':30, 'e':50, 'f':60, 'g':70, 'h':80}
 
 # How to delete static variables of a class: del classname.variablename  & del cls.variablename
 
@@ -129,6 +130,7 @@ class Test:
 t=Test()
 t.m1()
 t.m2()
+# O/P:1000 2000
 
 # Types of Methods:
 #1. Instance Method:
