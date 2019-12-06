@@ -1,6 +1,6 @@
 # Object Oriented Programing(OOPs Concept)
 '''
-# In python every this is object. To create an objects we need some Model or plan or Blue Print, which is nothing but class.
+# In python every thing is object. To create an objects we need some Model or plan or Blue Print, which is nothing but class.
 # We can write a class to represent properties(attributes) and action behaivour of object.
 # Properties are represented by objects.
 # Behaviour can be represented by Method.  Hence the class contains both Variables and Methods.
