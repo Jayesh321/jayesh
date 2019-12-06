@@ -39,11 +39,11 @@ class test:
         print("constructor is getting executed")
     def m1(self):
         print("method execution")
-t=test()
-t2=test()
-t3=test()
-t3.m1()
-t3.m1()
+t=test()        #O/P:constructor is getting executed
+t2=test()       #O/P:constructor is getting executed
+t3=test()       #O/P:constructor is getting executed
+t3.m1()         #O/P:method execution
+t3.m1()         #O/P:method execution
 
 # Types of Variables:
 # 1. Instance variable(object level variable)-->The value of a variable is varied from object to object.
@@ -61,6 +61,8 @@ s=Employee()
 s.m1()
 s.sub="english"  #--------->Outside of the class by using object reference variable:
 print(s.__dict__)
+
+#O/P: {'sub':'english', 'marks':93, 'rollno':313, 'name':'jayesh'}
 
 # How to delete instance variable from the object:
 # Within a class we can delete instance variable as follows:  del self.variableName
@@ -87,19 +89,24 @@ class Test:
     def m3():
         Test.h=80 #-------->Inside static method by using class name
 print(Test.__dict__) #-------> To access Static variable
+# O/P : {'a':10}
 
 t1=Test()
 print(Test.__dict__) #-------> To access Static variable
+# O/P : {'a':10, 'c':30}
 
 t1.m1()
 print(Test.__dict__) #-------> To access Static variable
 print(t1.__dict__)  #-------> --------------> To access Instance variable
+# O/P : {'a':10, 'c':30, 'e':50, 'b':20, 'd':40}
 
 Test.m2()
 print(Test.__dict__)  #-------> To access Static variable
+# O/P : {'a':10, 'c':30, 'e':50, 'f':60, 'g':70}
 
 Test.m3()
 print(Test.__dict__)  #-------> To access Static variable
+# O/P : {'a':10, 'c':30, 'e':50, 'f':60, 'g':70}
 
 Test.i=90   #------->  To declare Static variable out side all method
 print(Test.__dict__) #-------> To access Static variable
