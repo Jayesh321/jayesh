@@ -1,6 +1,6 @@
 # Object Oriented Programing(OOPs Concept)
 '''
-# In python every thing is object. To create an objects we need some Model or plan or Blue Print, which is nothing but class.
+# In python every this is object. To create an objects we need some Model or plan or Blue Print, which is nothing but class.
 # We can write a class to represent properties(attributes) and action behaivour of object.
 # Properties are represented by objects.
 # Behaviour can be represented by Method.  Hence the class contains both Variables and Methods.
@@ -39,11 +39,11 @@ class test:
         print("constructor is getting executed")
     def m1(self):
         print("method execution")
-t=test()        #O/P:constructor is getting executed
-t2=test()       #O/P:constructor is getting executed
-t3=test()       #O/P:constructor is getting executed
-t3.m1()         #O/P:method execution
-t3.m1()         #O/P:method execution
+t=test()
+t2=test()
+t3=test()
+t3.m1()
+t3.m1()
 
 # Types of Variables:
 # 1. Instance variable(object level variable)-->The value of a variable is varied from object to object.
@@ -61,8 +61,6 @@ s=Employee()
 s.m1()
 s.sub="english"  #--------->Outside of the class by using object reference variable:
 print(s.__dict__)
-
-#O/P: {'sub':'english', 'marks':93, 'rollno':313, 'name':'jayesh'}
 
 # How to delete instance variable from the object:
 # Within a class we can delete instance variable as follows:  del self.variableName
@@ -89,28 +87,22 @@ class Test:
     def m3():
         Test.h=80 #-------->Inside static method by using class name
 print(Test.__dict__) #-------> To access Static variable
-# O/P : {'a':10}
 
 t1=Test()
 print(Test.__dict__) #-------> To access Static variable
-# O/P : {'a':10, 'c':30}
 
 t1.m1()
 print(Test.__dict__) #-------> To access Static variable
 print(t1.__dict__)  #-------> --------------> To access Instance variable
-# O/P : {'a':10, 'c':30, 'e':50, 'b':20, 'd':40}
 
 Test.m2()
 print(Test.__dict__)  #-------> To access Static variable
-# O/P : {'a':10, 'c':30, 'e':50, 'f':60, 'g':70}
 
 Test.m3()
 print(Test.__dict__)  #-------> To access Static variable
-# O/P : {'a':10, 'c':30, 'e':50, 'f':60, 'g':70}
 
 Test.i=90   #------->  To declare Static variable out side all method
 print(Test.__dict__) #-------> To access Static variable
-# O/P : {'a':10, 'c':30, 'e':50, 'f':60, 'g':70, 'h':80}
 
 # How to delete static variables of a class: del classname.variablename  & del cls.variablename
 
@@ -130,7 +122,6 @@ class Test:
 t=Test()
 t.m1()
 t.m2()
-# O/P:1000 2000
 
 # Types of Methods:
 #1. Instance Method:
@@ -255,6 +246,7 @@ j.sub(6,5) #-------> calling with object reference
 Math.mul(6,5) #-------> calling with Class Name
 
 # Garbage Collector:
+#--------------------
 # The main objective of garbage collector is to destroy useless objects.
 # If an object does not have any reference variable then that object eligible for Garbage Collection.
 
@@ -271,16 +263,26 @@ gc.enable()
 print(gc.isenabled())
 
 # Destructors:
+#----------------
 # Destructor is a special method and the name should be __del__
 # Just before destroying an object Garbage Collector always calls destructor to perform clean up activities.
 # Once destructor execution completed then Garbage Collector automatically destroys that object.
 # The job of destructor is not to destroy object and it is just to perform clean up activities.
 
-# Polymorphism:
+# Related to OOPs Four topics are important:
+#-------------------------------------------
+# 1.Inheritance
+# 2.Polymorphism
+# 3.Abstraction
+# 4.Encapsulation
+
+# 1.Polymorphism:
+#-------------
 # Poly means many. Morphs means forms.
 # Related to Polymorphism 4 topics are important
 
 # Duck typing Philosophy of python:  In python we can not specify type explicitly. Based on provided value at run time type will be considered automatically.
+#-----------------------------------
 # Hence python is a dynamically typed language.
 # At run time if it walks like a duck and talk like a duck, it must be duck. Python follows this principle. This is called Duck Typing Philosophy.
 
@@ -422,11 +424,129 @@ class Employee(Person):
 e1=Employee("jay",48,20000,131)
 e1.display()
 e2=Employee("Kumar",52,141,250000)
-e2.display()'''
+e2.display()
 
-# Abstraction
+# 2.Inheritance in Python:
+#------------------------
+# Inheritance is the capability of one class to inherit or drive properties from some other class. The benefit of inheritance are:
+# 1. It represent hte real world relationship well.
+# 2. It provides the reusability of code. We don’t have to write the same code again and again. Also, it allows us to add more features to a class without modifying it.
+# 3. It is transitive in nature, which means that if class B inherits from class A, then all subclasses of B would automatically inherit from class A.
 
-# Encapsulation
+# Demo:
+class parent():
+    def first(self):
+        print("first function")
+class child(parent):
+    def second(self):
+        print("second function")
+c=child()
+c.second()
+c.first()
+
+# Types of Inheritance:
+#----------------------
+# 1.Single Inheritance: When a child class inherits only a single parent class.
+class parent():
+    def func1(self):
+        print("first function")
+class child(parent):
+    def func2(self):
+        print("second function")
+c=child()
+c.func1()
+c.func2()
+
+# 2. Multiple Inheritance: When a child class inherits from more than one parent class.
+class Parent1():
+    def func1(self):
+        print("First function")
+class Parent2():
+    def func2(self):
+        print("Second function")
+class Child(Parent1,Parent2):
+    def func3(self):
+        print("Third function")
+c=Child()
+c.func1()
+c.func2()
+c.func3()
+
+# Multilevel Inheritance: When a child class becomes parent for another child class.
+class Parent():
+    def func1(self):
+        print("First function")
+class Child1(Parent):
+    def func2(self):
+        print("Second function")
+class Child2(Child1):
+    def func3(self):
+        print("Third function")
+c=Child2()
+c.func1()
+c.func2()
+c.func3()
+
+# Hierarchical Inheritance: It involves multiple inheritance from the same parent or base class
+class Parent():
+    def func1(self):
+        print("First function")
+class Child1(Parent):
+    def func2(self):
+        print("Second function")
+class Child2(Parent):
+    def func3(self):
+        print("Third function")
+c=Child1()
+c.func1()
+c.func2()
+c2=Child2()
+c2.func1()
+c2.func3()
+
+# Hybrid Inheritance: Hybrid inheritance involves multiple inheritance in a single program.
+class Parent():
+    def func1(self):
+        print("Function first")
+class Child1(Parent):
+    def func2(self):
+        print("Second function")
+class Child2():
+    def func3(self):
+        print("Third function")
+class Child3(Parent , Child2):
+    def func4(self):
+        print("Fourth function")
+c=Child3()
+c.func1()
+c.func3()
+c.func4()
+'''
+
+
+
+# 3.Abstraction: Abstraction means hiding the complexity and only showing the essential features of the object.
+#---------------
+# So in a way, Abstraction means hiding the real implementation and we, as a user, knowing only how to use it.
+# Real world example would be a vehicle which we drive with out caring or knowing what all is going underneath.A TV set where we enjoy programs with out knowing the inner details of how TV works.
+# Abstraction in python is achieved by abstract classes and interfaces.
+# An Abstract class is a class that contains one or more abstract method.
+# Abstract methods are methods that generally dont have any implementation, It is left to sub classes to provide implementation for the abstract method.
+# Here note that in python abstract can have implementation in the  abstract class too but the sub class inheriting that abstract class is still forced to override the abstract method.
+
+# Syntex: It is created by driving from the meta class ABC which belongs to the abc(Abstract Base class) module.
+# from abc import ABC, abstractmethod
+# class MyClass(ABC):      ---->From abc module ABC meta class has to be imported and abstract class has to inherit ABC class in order to be considered as an abstract class.
+#    @abstractmethod        ----->For defining abstract methods in an abstract class method has to be decorated with @abstractmethod decorator. From abc module @abstractmethod decorator has to be imported to use that annotation.
+#    def my method(self):
+#    pass     ------->Empty body
+
+# Important Points:
+# 1. Abstract class can have both concrete method as well as abstract method.
+# 2. Abstract class cant be instantiated so it is not possible to create objects of an abstract class.
+# 3. 
+
+# 4. Encapsulation
 
 
 
