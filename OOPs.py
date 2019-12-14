@@ -521,12 +521,9 @@ c=Child3()
 c.func1()
 c.func3()
 c.func4()
-'''
-
-
 
 # 3.Abstraction: Abstraction means hiding the complexity and only showing the essential features of the object.
-#---------------
+#---------------(for more information:https://netjs.blogspot.com/2019/05/abstract-class-in-python.html)
 # So in a way, Abstraction means hiding the real implementation and we, as a user, knowing only how to use it.
 # Real world example would be a vehicle which we drive with out caring or knowing what all is going underneath.A TV set where we enjoy programs with out knowing the inner details of how TV works.
 # Abstraction in python is achieved by abstract classes and interfaces.
@@ -544,23 +541,205 @@ c.func4()
 # Important Points:
 # 1. Abstract class can have both concrete method as well as abstract method.
 # 2. Abstract class cant be instantiated so it is not possible to create objects of an abstract class.
-# 3. 
+# 3. Generally abstract method defined in abstract class dont have any body but it is possible to have abstract method with implementation in abstarct class. Any sub class deriving from sub abstract class still needs to provide implimentation for such abstract class.
+# 4. If an abstract method is not implemented by derived class python throws error.
 
-# 4. Encapsulation
+from abc import ABC, abstractmethod
+class Parent():
+    def common(self):     # concrete(common) method
+        print("In common method of parent")
+    @abstractmethod
+    def vary(self):
+        pass
+class Child1(Parent):
+    def vary1(self):
+        print("In vary method of child1")
+class Child2(Parent):
+    def vary2(self):
+        print("In vary method of Child2")
+c1=Child1()
+c1.common()
+c1.vary1()
+c2=Child2()
+c2.common()
+c2.vary2()
+
+# 4. Encapsulation: https://pythonprogramminglanguage.com/encapsulation/
+#-------------------
+# An object variable should not always be directly accessible.
+# To prevent accidental change, an object variable can sometimes only be changed with an object methods. Those type of variables are private variables.
+# The method can ensure the coreect values are set. If an incorrect values are set, the method can return an error.
+# Example: Python does not have the private key, unlike some other object oriented languages, but encapsulation can be done.
+# instead, it relies on the convection: a class variable should not be directly be accessed should be prefixed with an underscore.
+# Examples:
+class Robot(object):
+    def __init__(self):
+        self.a=123
+        self._b=123
+        self.__c=123
+r=Robot()
+print(r.a)
+print(r._b)
+print(r.__c)
+# Out Put--->  File "D:/pro/OOPs.py", line 583, in <module>
+#     print(r.__c)
+# AttributeError: 'Robot' object has no attribute '__c'
+# 123
+# 123
+# A single under score: Private variable, It should be access directly. But nothing stops you from doing that(except convection)
+# A Double under score: Private variable harder to access but still possible
+# Both are still accessible;Python has private variable by convection
+# Getter And Setter: Private variables are intended to be changed using getter and setter methods. This provides indirect access to them.
+
+class Robot(object):
+    def __init__(self):
+        self.__version=22
+    def getVersion(self):
+        print(self.__version)
+    def  setVersion(self,version ):
+        self.__version=version
+R=Robot()
+R.getVersion()
+R.setVersion(23)
+R.getVersion()
+print(R.__version)
+# The class with private attribute and methods.
+#The values are changed within the class methods. You could do additional checks, like if the value is not negative or to large.
+'''
+
+# Another Example of Encapsulation:https://linuxconfig.org/python-encapsulation
+#------------------------------------
+'''
+Introduction:
+Encapsulation is one of the fundamental aspects of Object Oriented Programming. 
+It allows programmers better control of how data flows in their programs, and it protects that data. 
+Encapsulation also makes objects into more self-sufficient and independently functioning pieces.
+
+The concept of encapsulation builds on what you did in the last two guides with classes and constructors.
+Constructors usually are usually used in close conjunction with encapsulation and actually aid in making encapsulation work seamlessly.
+
+Access Modifiers:
+Before you can take advantage of encapsulation, you have to understand how Python restricts access to the data stored in variables and methods.
+Python has different levels of restriction that control how data can be accessed and from where. Variables and methods can be public, private, or protected. 
+Those designations are made by the number of underscores before the variable or method.
+
+Public:
+Every variable and method that you've seen so far with the exception of the constructors has been public.
+Public variables and methods can be freely modified and run from anywhere, either inside or outside of the class. To create a public variable or method, don't use any underscores.
+
+Private:
+The private designation only allows a variable or method to be accessed from within its own class or object. You cannot modify the value of a private variable from outside of a class.
+Private variables and methods are preceded by two underscores. Take a look at the example below.
+Ex: __make = 'Dodge'
+Try using that class from before. Set the variables in the constructor to private. Then try to print one of the variables after an object has been instantiated.
+'''
+class Car(object):
+
+    def __init__(self, make = 'Ford', model = 'Pinto', year = '1971', mileage = '253812',      color = 'orange'):
+        self.__make = make
+        self.__model = model
+        self.__year = year
+        self.__mileage = mileage
+        self.__color = color
+
+    def move_forward(self, speed):
+        print("Your %s is moving forward at %s" % (self.__model, speed))
+
+    def move_backward(self, speed):
+        print("Moving backward at %s" % speed)
+mycar = Car()
+
+print(mycar.__model)
+
+# You will receive an error message stating that the variable doesn't exist.
+# This is because that variable is private. Now try running the move_forward method.
+
+mycar.move_forward
+'''
+Everything works fine. That's because the variable is being accessed by a method within the class, not externally.
+
+There is a catch here. Python doesn't exactly handle protected variables as well as other object oriented languages. 
+Instead of actually protecting variables, it changes the name of them within the interpreter. 
+This allows for different copies of the variable to be created and exist. 
+Try changing one of the protected variables in your mycar object and printing it out.
+'''
+mycar.__model = 'Mustang'
+print(mycar.__model)
+# Now, it seems to work, but what you've printed out is a strange copy of the protected variable. Try using the move_forward method again.
+
+mycar.move_forward
+#It printed out the original value of __model. The variables exist independently. You can further illustrate this by printing out the object as a dictionary. You will see two different variables.
+
+print(mycar.__dict__)
+
+'''
+Protected:
+
+Protected variables and methods are very similar to private ones. You probably won't use protected variables or methods very often, but it's still worth knowing what they are. 
+A variable that is protected can only be accessed by its own class and any classes derived from it.
+That is more a topic for later, but just be aware that if you are using a class as the basis of another one, protected variables may be a good option. Protected variables begin with a single underscore.
+
+What Is Encapsulation:
+
+So, now that you know how access modifiers work, this next part is going to seem pretty obvious.Encapsulation is the process of using private variables within classes to prevent unintentional or potentially malicious modification of data.
+By containing and protecting variables within a class, it allows the class and the objects that it creates to function as independent, self contained, parts functioning within the machine of the program itself.
+
+Through encapsulation variables and certain methods can only be interacted with through the interfaces designated by the class itself.
+
+Setters and Getters:
+The interfaces that are used for interacting with encapsulated variables are generally referred to as setter and getter methods because the are used to set and retrieve the values of variables. 
+Because methods exist within a class or object, they are able to access and modify private variables, while you will not be able to do so from outside the class. 
+When you instantiated your mycar object, you essentially used its constructor as an initial setter method. Try writing a set of methods to set and get the value of one of the mycar variables.
+'''
+def set_model(self, new_model):
+	self.__model = new_model
+
+def get_model(self):
+	return self.__model
+
+'''
+It might seem like a lot of extra work, but it's really not hard at all. Generally speaking, this is how you should structuring your classes and working with class variables.
+
+Closing Thoughts:
+Encapsulation is a major part of Object Oriented Programming. It's a big part of what makes objects in programming perform more like physical objects in the real world. 
+data stored within your objects and provides control and conventions for how you should handle the flow of data in and out of classes.
+'''
 
 
 
 
+# Another example of encapsulation:
+#----------------------------------
+# Encapsulation is Data hiding of internal state to protect the object integrity.
+# In the example given below, Customer is a class. We have encapsulated (by prepending it with __) the variable accountNumber.
+# The only was accountNumber can be retrieved is via the getter method, getAccountNumber.
+#class Customer:
+	#def __init__(self):
+		#self.__accountNumber = 4321
+	#def getAccountNumber(self):
+		#return self.__accountNumber
+# Similarly we can hide access to methods as well. For doing that, we need to prepend the method name with __ (Double underscore).
 
+#class Customer:
+	#def __init__(self):
+		#self.__accountNumber = 4321
+	#def __processAccount(self):
+		#print("Processing Account")
+	#def getAccountNumber(self):
+		#return self.__accountNumber
 
-
-
-
-
-
-
-
-
+# Note: Even though it is not possible to directly access the private methods and variables, there is work around to access them indirectly.
+# For instance, we can access the account number and processing account variable as shown.
+class Customer():
+    def __init__(self):
+        self.__accountNumber=1234
+    def prcessAcount(self):
+        print("processing acount")
+    def getAccount(self):
+        return self.__accountNumber
+c=Customer()
+print(c.getAccount())
+c.prcessAcount()
 
 
 
