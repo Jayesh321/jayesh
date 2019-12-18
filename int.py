@@ -122,10 +122,430 @@ print(x)
 l=eval((input("Enter List:")))
 print(type(l))
 print(l)
+
+# Flow Control: It describes the order in which statements will be executed at the run time.
+#----------------------
+# I.Conditional Statement:
+# if, if-elif, if-elif-else: There is no switch statement in Python
+# To check the biggest of the three numbers:
+n1=int(input("Enter First Number:"))
+n2=int(input("Enter Second Number:"))
+n3=int(input("Enter Third Number:"))
+if n1>n2 and n1>n3:
+    print("Biggest Number is:",n1)
+elif n2>n3:
+    print("Biggest Number is:",n2)
+else:
+    print("Biggest Number is:",n3)
+
+# II.Iterative Statement:
+# If we want to execute a group statement multiple times then we should go for iterative statement.
+# 1. for loop: If we want to execute some action for every element present in some sequence(it may be string or collection)then we should go for loop.
+list=eval(input("enter list:"))
+sum=0
+for i in list:
+    sum=sum+i
+print("The sum:",sum)
+
+# 2.While loop: If we want to execute a group of statements iteratively until some condition false, then should go for while loop.
+name=" "
+while name!="Durga":
+    name=input("Enter Name:")
+print("Thanks for confirmation")
+#To display the sum of first n numbers
+n=int(input("Enter number:"))
+sum=0
+i=1
+while i<=n:
+    sum=sum+i
+    i=i+1
+print("The sum of first",n,"numbers is :",sum)
+
+# 3.Infinite loop:
+i=0
+while True:
+    print("Hello",i)
+    i=i+1
+
+# 4.Nested loop: Some times we take loop inside another loop it is also called nested loop.
+# Write a program to dispaly *'s in Right angled triangle form
+n=int(input("Enter Number:"))
+for i in range(n+1):
+    for j in range(i+1):
+        print("*",end='')
+    print()
+# Alternate way:
+n = int(input("Enter number of rows:"))
+for i in range(1,n+1):
+    print("* " * i)
+
+# III. Transfer Statement:
+# 1.break: We can use break statement inside loops to break the loop execution based on some condition.
+kart=[20,30,600,23,52]
+for item in kart:
+    if item>500:
+        print(" item is exceeding the limit", item)
+        break
+    print(item)
+# 2. Continue: We can use continue statement to skip the current iteration and continue the next iteration.
+kart=[20,30,600,23,52]
+for item in kart:
+    if item > 500:
+        print("Item is exceeding maximum:",item)
+        continue
+    print(item)
+
+# loop with else block: Inside loop if break statement is not executed then only else block will execute----->else means without break.
+kart=[20,30,60,23,52]
+for item in kart:
+    if item > 500:
+        print("Item is exceeding maximum:",item)
+        break
+    print(item)
+else:
+    print("Congrats all item got passed")
+# Pass statement:
+# pass is a keyword in pyhtnon: Sometimes in the parent class we have to declare a function with empty body and child class responsible to provide proper implementation. Such type of empty body we can define by using pass keyword
+for i in range(100):
+    if i%9==0:
+        print(i)
+else:pass
+
+# Del statement: del is a key word in the python: After using a variable, it is highly recommended to delete that variable if it is no longer
+# required,so that the corresponding object is eligible for Garbage Collection. We can delete variable by using del keyword.
+
+# Difference between del and None:
+# del: In the case del, the variable will be removed and we cannot access that variable(unbind operation)
+# None: But in the case of None assignment the variable won't be removed but the corresponding object is eligible for Garbage Collection(re bind operation). Hence after assigning with None value,we can access that variable.
+s="durga"
+s=None
+print(s) # None
+
+# String Data Type:
+#--------------------
+# Any sequence of character within single quote or double quote is considered as string.
+
+# How to access characters of string:
+# 1. By using index: Python supports both +ve and -ve index.
+s=input("Enter string:")
+i=0
+for j in s:
+    print("+ve Index:",i,"-ve Index:",i-len(s), "character:", j)
+    i+=1
+
+# Slice operator: Syntex:s[bEginindex:endindex:step]
+
+# beginindex:From where we have to consider slice(substring)
+# endindex: We have to terminate the slice(substring) at endindex-1
+# step: incremented value
+# Note: If we are not specifying bEgin index then it will consider from bEginning of the string.
+# If we are not specifying end index then it will consider up to end of the string, The default value for step is 1
+
+s="Learning Python is very very easy!!!"
+print(s[1:7:1])
+# O/P: 'earnin'
+print(s[::])
+#O/P: 'Learning Python is very very easy!!!'
+print(s[::-1])
+# O/P: '!!!ysae yrev yrev si nohtyP gninraeL'
+
+#len() in-built function: We can use len() function to find the number of characters present in the string.
+#Write a program to access each character of string in forward and backward direction by using while loop?
+s="Learning Python is very easy !!!"
+n=len(s)
+i=0
+print("Forward direction")
+while i<n:
+    print(s[i],end=' ')
+    i +=1
+print("Backward direction")
+i=-1
+while i>=-n:
+    print(s[i],end=' ')
+    i=i-1
+
+# Checking Membership: We can check weather the character or string is the member of another string or not by using in and not in operator.
+s=input("Enter main String:")
+subs=input("Enter sub string:")
+if subs in s:
+    print("Found in the main string")
+else:
+    print("Not found in the main string")
+
+# Comparison of Strings: We can use comparision operator(<,<=,>=) and equality operator (!=, ==) for string.
+# Comparison will be performed based on alphabetical order.
+s1=input("Enter first string:")
+s2=input("Enter second string:")
+if s1==s2:
+    print("Both s1=s2 are equal")
+elif s1<s2:
+    print("s1 is lesser then s2")
+else:
+    print("First string is greater then second")
+
+# Removing spaces from the string:
+# 1. rstrip()===>To remove spaces at right hand side
+# 2. lstrip()===>To remove spaces at left hand side
+# 3. strip() ==>To remove spaces both sides
+city=input("Enter your city Name:")
+scity=city.strip()
+if scity=='Hyderabad':
+    print("Hello Hyderbadi..Adab")
+elif scity=='Chennai':
+    print("Hello Madrasi...Vanakkam")
+elif scity=="Bangalore":
+    print("Hello Kannadiga...Shubhodaya")
+else:
+    print("your entered city is invalid")
+
+# Finding Substrings: We can find using 4 methods
+
+# For forward direction:
+# 1.find(): Syntex: s.find(substring)-----> Returns index of first occurrence of the given substring. If it is not available then we will get -1
+s=input("Enter main String:") #--->jayesh kumar
+print(s.find("ku")) #O/P--->starting index: 7
+print(s.find("ram"))   #O/P--->-1
+# Note: By default find() method can search total string. We can also specify the boundaries to search.
+# s.find(substring,bEgin,end): It will always search from bEgin index to end-1 index
+
+# 2.index(): It is exactly same as the find() method except that if the specified substring is not available then we will get Value error
+s=input("Enter main String:") #--->jayesh kumar
+sub=input("Enter sub string to find:")
+try:
+    s.index(sub) #O/P--->starting index: 7
+except ValueError:
+    print("Given sub string is not present")
+else:
+    print("Sub string found at index:",s.index(sub))
+
+# Counting substring in the given string: We can find number of occurrence of substring present in the given string by using count method.
+# s.count(substring) ------->It will search through out the string
+# s.count(substring, bEgin, end) ------> It will search from bEgin index to end-1 index
+# Example:
+s="abcabcabcabcadda"
+print(s.count('a'))
+print(s.count('ab'))
+print(s.count('a',3,7))
 '''
+# Replacing a string with another string: Syntex: s.replace(olderstring,newstring)
+# Q. String objects are immutable then how we can change the content by using replace() method??
+'''
+Once we creates string object, we cannot change the content.This non changeable behaviour is
+nothing but immutability. If we are trying to change the content by using any method, then with
+those changes a new object will be created and changes won't be happend in existing object.
+Hence with replace() method also a new object got created but existing object won't be changed
+s="abab"
+s1=s.replace("a","b")
+print(s,"is available at :",id(s))
+print(s1,"is available at :",id(s1))
+'''
+'''# Splitting of string: l=s.split(seperator) ------>The default seperator is space. The return type of split() method is List.
+s="My name is Jayesh Kumar"
+l=s.split()
+for x in l:
+    print(x)
 
+# Joining of Strings: Syntex: seperator.join(group of string)----> We can join group of strings(list or tuple) wrt the give seperator.
+l=['hyderabad','singapore','london','dubai']
+s=':'.join(l)
+print(s)
 
+# Changing case of String:
+# upper() ---->To convert all characters to upper case.
+# lower() ---->To convert all characters to lower case.
+# swapcase() ---->To convert all upper case to lower and all lower to upper.
+# title() ---->To convert all characters to Title case ie. first case in every word should be upper and remaining words will be lower case.
+# capitalize() -----> Only first character will be  converted to upper case and all remaining characters will be converted in to lower case.
+s='learning Python is very Easy'
+print(s.upper())
+print(s.lower())
+print(s.swapcase())
+print(s.title())
+print(s.capitalize())
 
+# Checking starting and ending part of the string:
+# Syntex: s.startswith(substring) ---->
+# Syntex: s.endswith(substring)
+s='learning Python is very easy'
+print(s.startswith('learning'))  #True
+print(s.endswith('learning'))    #True
+print(s.endswith('easy'))        #False
+
+# To check type of character present in the a string.
+# 1. isalnum() ---->Returns True if all characters are alpha numeric (a to z, A to Z, 0 to 9)
+# 2. isalpha() -----> Returns True if all characters are only alphabet symbols (a to z, A to Z)
+# 3. isdigit() -----> Returns True if all characters are digits only (0-9)
+# 4. islower() -----> Returns True if all characters are lower case alphabet symbols
+# 5. isupper() -----> Returns True if all characters are upper case alphabet symbols
+# 6. istitle() ----->Returns True if string is in title case
+# 7. isspace() ----->Returns True if string contains only space
+print('Durga786'.isalnum()) #True
+
+# Formatting the string: We can format the strings with variable values by using replacement operator {} and format() method.
+name='durga'
+salary=10000
+age=48
+print("{} 's salary is {} and his age is {}".format(name,salary,age))
+print("{0} 's salary is {1} and his age is {2}".format(name,salary,age))
+print("{x} 's salary is {y} and his age is {z}".format(z=age,y=salary,x=name))
+
+# Important Programs of Sring concept:
+# Q1. Write a program to reverse the given String:
+s=input("Enter Some String:")
+i=len(s)-1
+target=''
+while i>=0:
+    target=target+s[i]
+    i=i-1
+print(target)
+
+# Q2. Program to reverse order of words:
+# way first: 
+s= "Learning Python is very Easy"
+j=list(s.split())
+k=j[::-1]
+print(' '.join(k))
+
+# Way Second: 
+s= "Learning Python is very Easy"
+j=s.split()
+i=len(j)-1
+l=[]
+while i>=0:
+    l.append(j[i])
+    i=i-1
+print(' '.join(l))
+
+# Q3. Program to reverse internal content of each word.
+# way first:
+s= input("Enter string:")
+j=s.split()
+for i in j:
+    print(i[::-1],end=' ')
+
+# Way Second: 
+s=input("Enter Some String:")
+l=s.split()
+l1=[]
+i=0
+while i<len(l):
+    l1.append(l[i][::-1])
+    i=i+1
+output=' '.join(l1)
+print(output)
+
+# Q4. Write a program to print characters at odd position and even position for the given String?
+# Way First: 
+s= "Jayesh"
+print("Odd position:", s[0::2])
+print("Even postion:", s[1::2])
+
+# Way Second: 
+s= input("Enter string:")
+i=0
+while i<len(s):
+    print(s[i], end=',')
+    i=i+2
+print() ------>to print the out put in the next line
+j=1
+while j<len(s):
+    print(s[j],end=',')
+    j=j+2
+    
+# Q5. Program to merge characters of 2 strings into a single string by taking characters
+alternatively.
+s1=input("Enter 1st string:")
+s2=input("Enter 2nd String:")
+output=""
+i=0
+j=0
+while i<len(s1) or j<len(s2):
+    if i<len(s1):
+        output=output+s1[i]
+        i=i+1
+    if j<len(s2):
+        output=output+s2[j]
+        j=j+1
+print(output)
+
+# Q6. Write a program to sort the characters of the string and first alphabet symbols followed by numeric values.    
+s="A5B2GJ5D"
+output=s1=s2=""
+for x in s:
+    if s.isalpha():
+        s1=s1+x
+    else:
+        s2=s2+x
+for x in sorted(s1):
+    output=output+x
+for x in sorted(s2):
+    output=output+x
+print(output)
+
+# Q7. Write a program for the following requirement
+# input: a4b3c2
+# output: aaaabbbcc
+s="a4b3c2"
+output=""
+for i in s:
+    if i.isalpha():
+        output=output+i
+        previous=i
+    else:
+        output=output+previous*(int(i)-1)
+print(output)
+
+# Q8. Write a program to perform the following activity
+# input: a4k3b2
+# output:aeknbd
+# Note: chr(unicode)===>The corresponding character
+# ord(character)===>The corresponding unicode value
+s="a4k3b2"
+output=""
+for i in s:
+    if i.isalpha():
+        output=output+i
+        next=i
+    else:
+        output=output+chr(ord(next)+int(i))
+print(output)
+
+# Q9. Write a program to remove duplicate characters from the given input string?
+# input: ABCDABBCDABBBCCCDDEEEF
+# output: ABCDEF
+s="ABCDABBCDABBBCCCDDEEEF"
+output=""
+for i in s:
+    if i not in output:
+        output=output+i
+print(output)
+
+# Q10. Write a program to find the number of occurrences of each character present in the given String?
+# input: ABCABCABBCDE
+# output: A-3,B-4,C-3,D-1,E-1
+
+s="ABCABCABBCDE"
+d={}
+for i in s:
+    if i in d.keys():
+        d[i]=d[i]+1
+    else:
+        d[i]=1
+for k,v in d.items():
+    print("{}={}Times".format(k,v),end=" ")
+    
+# Formatting the Strings:for more information formating refer page 90 of Durga sir Pdf file.
+
+# List Data Structure: If we want to represent a group of individual objects as a single entity where insertion order is preserved and duplicates are allowed, then we should go for List.
+#---------------------------
+# Insertion order are preserved.
+# Duplicates objects are allowed.
+# Hetrogeneous objects are allowed.
+# List is dynamic in nature because based on our requirement we can decrease the size and increase the of the list.
+# In list the elements are placed within the square bracket seperated by comma seperator.
+# We can differentiate duplicate elements by using index and we can preserve insertion order by using index. Hence index will play very important role. Python supports both positive and negative indexes.
+# 
+'''
 
 
 
@@ -840,7 +1260,7 @@ else:
 # Python loging
 # file handlingh and its remaining part
 # Math module
-
+# comman line argument
 
 
 
