@@ -1,7 +1,7 @@
 # Python is a general purpose high level programming language.
 '''
 # Identifires:
-#------------------------------
+#-----------------------------
 # A name in python is called identifire.It can be class name or function name or module name or variable name.--->a=10
 # alphabet symbols(either lower case or upper case)
 # digits(0 to 9)
@@ -400,13 +400,13 @@ while i>=0:
 print(target)
 
 # Q2. Program to reverse order of words:
-# way first: 
+# way first:
 s= "Learning Python is very Easy"
 j=list(s.split())
 k=j[::-1]
 print(' '.join(k))
 
-# Way Second: 
+# Way Second:
 s= "Learning Python is very Easy"
 j=s.split()
 i=len(j)-1
@@ -423,7 +423,7 @@ j=s.split()
 for i in j:
     print(i[::-1],end=' ')
 
-# Way Second: 
+# Way Second:
 s=input("Enter Some String:")
 l=s.split()
 l1=[]
@@ -435,12 +435,12 @@ output=' '.join(l1)
 print(output)
 
 # Q4. Write a program to print characters at odd position and even position for the given String?
-# Way First: 
+# Way First:
 s= "Jayesh"
 print("Odd position:", s[0::2])
 print("Even postion:", s[1::2])
 
-# Way Second: 
+# Way Second:
 s= input("Enter string:")
 i=0
 while i<len(s):
@@ -451,7 +451,7 @@ j=1
 while j<len(s):
     print(s[j],end=',')
     j=j+2
-    
+
 # Q5. Program to merge characters of 2 strings into a single string by taking characters
 alternatively.
 s1=input("Enter 1st string:")
@@ -468,7 +468,7 @@ while i<len(s1) or j<len(s2):
         j=j+1
 print(output)
 
-# Q6. Write a program to sort the characters of the string and first alphabet symbols followed by numeric values.    
+# Q6. Write a program to sort the characters of the string and first alphabet symbols followed by numeric values.
 s="A5B2GJ5D"
 output=s1=s2=""
 for x in s:
@@ -533,7 +533,7 @@ for i in s:
         d[i]=1
 for k,v in d.items():
     print("{}={}Times".format(k,v),end=" ")
-    
+
 # Formatting the Strings:for more information formating refer page 90 of Durga sir Pdf file.
 
 # List Data Structure: If we want to represent a group of individual objects as a single entity where insertion order is preserved and duplicates are allowed, then we should go for List.
@@ -544,7 +544,7 @@ for k,v in d.items():
 # List is dynamic in nature because based on our requirement we can decrease the size and increase the of the list.
 # In list the elements are placed within the square bracket seperated by comma seperator.
 # We can differentiate duplicate elements by using index and we can preserve insertion order by using index. Hence index will play very important role. Python supports both positive and negative indexes.
-# 
+#
 '''
 
 
@@ -1261,8 +1261,3 @@ else:
 # file handlingh and its remaining part
 # Math module
 # comman line argument
-
-
-
-
-
