@@ -1,7 +1,7 @@
 # Python is a general purpose high level programming language.
 '''
 # Identifires:
-#-----------------------------
+#-------------------------
 # A name in python is called identifire.It can be class name or function name or module name or variable name.--->a=10
 # alphabet symbols(either lower case or upper case)
 # digits(0 to 9)
