@@ -835,7 +835,32 @@ print(len(found))
 j=string.count('u')
 print(j)
 
-# Generator
+# Generator: 
+-------------
+
+# Generator-Function: It is defined like a normal function but when ever it needs to generate a value it does with key Yield key word rather then return.
+If body of a function contains yield then automatically it becomes generator function.
+
+def simpleGeneratorFun(): 
+    yield 1            
+    yield 2            
+    yield 3            
+for value in simpleGeneratorFun():  
+    print(value) 
+   
+# Generator Object: Generator function returns a generator object. Generator object are used either by calling the next method on the generator object or using the generator object in "for in" loop. 
+def simpleGeneratorFun(): 
+    yield 1
+    yield 2
+    yield 3
+   
+# x is a generator object 
+x = simpleGeneratorFun() 
+  
+# Iterating over the generator object using next 
+print(x.next()); # In Python 3, __next__() 
+print(x.next()); 
+print(x.next()); 
 
 # To Generate first n numbers from Generator:
 
