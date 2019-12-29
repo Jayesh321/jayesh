@@ -1,7 +1,7 @@
 # Python is a general purpose high level programming language.
 '''
 # Identifires:
-#-------------------------
+#------------------------------
 # A name in python is called identifire.It can be class name or function name or module name or variable name.--->a=10
 # alphabet symbols(either lower case or upper case)
 # digits(0 to 9)
@@ -400,13 +400,13 @@ while i>=0:
 print(target)
 
 # Q2. Program to reverse order of words:
-# way first:
+# way first: 
 s= "Learning Python is very Easy"
 j=list(s.split())
 k=j[::-1]
 print(' '.join(k))
 
-# Way Second:
+# Way Second: 
 s= "Learning Python is very Easy"
 j=s.split()
 i=len(j)-1
@@ -423,7 +423,7 @@ j=s.split()
 for i in j:
     print(i[::-1],end=' ')
 
-# Way Second:
+# Way Second: 
 s=input("Enter Some String:")
 l=s.split()
 l1=[]
@@ -435,12 +435,12 @@ output=' '.join(l1)
 print(output)
 
 # Q4. Write a program to print characters at odd position and even position for the given String?
-# Way First:
+# Way First: 
 s= "Jayesh"
 print("Odd position:", s[0::2])
 print("Even postion:", s[1::2])
 
-# Way Second:
+# Way Second: 
 s= input("Enter string:")
 i=0
 while i<len(s):
@@ -451,7 +451,7 @@ j=1
 while j<len(s):
     print(s[j],end=',')
     j=j+2
-
+    
 # Q5. Program to merge characters of 2 strings into a single string by taking characters
 alternatively.
 s1=input("Enter 1st string:")
@@ -468,7 +468,7 @@ while i<len(s1) or j<len(s2):
         j=j+1
 print(output)
 
-# Q6. Write a program to sort the characters of the string and first alphabet symbols followed by numeric values.
+# Q6. Write a program to sort the characters of the string and first alphabet symbols followed by numeric values.    
 s="A5B2GJ5D"
 output=s1=s2=""
 for x in s:
@@ -533,7 +533,7 @@ for i in s:
         d[i]=1
 for k,v in d.items():
     print("{}={}Times".format(k,v),end=" ")
-
+    
 # Formatting the Strings:for more information formating refer page 90 of Durga sir Pdf file.
 
 # List Data Structure: If we want to represent a group of individual objects as a single entity where insertion order is preserved and duplicates are allowed, then we should go for List.
@@ -544,7 +544,172 @@ for k,v in d.items():
 # List is dynamic in nature because based on our requirement we can decrease the size and increase the of the list.
 # In list the elements are placed within the square bracket seperated by comma seperator.
 # We can differentiate duplicate elements by using index and we can preserve insertion order by using index. Hence index will play very important role. Python supports both positive and negative indexes.
-#
+# List Vs Mutability: Once we creates a List object,we can modify its content. Hence List objects are mutable.
+n=[10,20,30,40]
+print(n)
+n[1]=777
+print(n)
+
+# Traversing the element of list: The sequential access of each element in the list is called traversal.
+# 1. By using while loop:
+n=[5,8,2,3,4,5,6,7,8,9,10]
+i=0
+while i<len(n):
+    print(n[i])
+    i=i+1
+# 2. By using for loop:
+n=[0,1,2,3,4,5,6,7,8,9,10]
+for n1 in n:
+    print(n1)
+# 3. To display elements by index wise:
+l=["A","B","C"]
+n=len(l)
+for i in range(n):
+    print("A is available positive index at",i, "And negative index" ,i-n)
+
+I. To get information about list:
+    
+# len(): To returns the number of elements present in the list.
+# count(): It returns the number of occurrences of specified item in the list.   
+n=[1,2,2,2,2,3,3]
+print(n.count(2)) #4
+# 3. index() function: To returns the index of first occurrence of the specified item.
+n=[1,2,2,2,2,3,3]
+print(n.index(3)) #5
+
+# II. Manipulating elements of List:
+
+# append() function: We can use append() function to add item at the end of the list.
+list=[]
+for i in range(101):
+    if i%10==0:
+        list.append(i)
+print(list)
+
+# 2.insert() function: To insert item at specified index position.
+n=[1,2,3,4,5]
+n.insert(2,888)
+print(n)
+
+3. extend() function: To add all items of one list to another list: Syntex: l1extend(l2) :all items present in l2 will be added to l1.
+order1=["Chicken","Mutton","Fish"]
+order2=["RC","KF","FO"]
+order1.extend(order2)
+print(order1)
+
+4. remove() function: We can use this function to remove specified item from the list.If the item present
+multiple times then only first occurrence will be removed.
+n=[10,20,10,30]
+n.remove(10)
+print(n)
+
+5. pop() function: It removes and returns the last element of the list. This is only function which manipulates list and returns some element.
+
+n=[10,20,30,40]
+print(n.pop())
+print(n.pop())
+print(n)
+
+# Ordering elements of the list:
+
+# 1. reverse(): We can use it to reverse the order of the element.
+n=[10,20,30,40]
+print(n.reverse())
+
+# 2.sort(): In list by default insertion order is preserved. If we want to sort the elements of the list according to the default natural sorting order then we should go for sort() method.
+# For number: Default natural sorting order is Ascending.
+# For string: Default natural sorting order is Alphabetical order.
+n=[20,5,15,10,0]
+s=["Dog","Banana","Cat","Apple"]
+n.sort()
+print(n)
+s.sort()
+print(s)
+
+# To sort in reverse of default natural sorting order: We can sort according to reverse of default natural sorting order by using reverse=True argument.
+n=[20,5,15,10,0]
+n.sort(reverse=True)
+print(n)
+
+# Aliasing and cloning of list objects:
+# Cloning: The process of creating exactly duplicate independent object is called cloning.
+# We can  impliment  cloning by using slice operator or by using copy() function.
+
+# 1. By using slice operator:
+x=[10,20,30,40]
+y=x[:]
+print(id(x))  #35607112
+print(id(y))  #35607624
+
+# 2. By using copy():
+x=[10,20,30,40]
+y=x.copy()
+print(id(x))  #36852296
+print(id(y))  #36852808
+
+# Using Mathematical operators for the list Objects: (Using + & *)
+# 1. Concatenation Operator (+): We can use + to concatenate 2 lists into a single list
+a=[10,20,30]
+b=[40,50,60]
+c=a+b
+print(c) ==>[10,20,30,40,50,60]  Note: To use + operator compulsory both arguments should be list objects,otherwise we will get TypeError.
+
+# 2. Repetition Operator: We can use repetition operator * to repeat elements of the list specified number of times.
+x=[10,20,30]
+y=x*3
+print(y)==>[10,20,30,10,20,30,10,20,30]
+
+# Comparing List objects: We can use comparison operators for List objects.
+x=["Dog","Cat","Rat"]           # Note: Whenever we are using comparison operators(==,!=) for List objects then the following should be considered
+y=["Dog","Cat","Rat"]           # Number of elements.
+=["DOG","CAT","RAT"]            # Order of elements 
+print(x==y) True                # Contents of elements
+print(x==z) False
+print(x != z) True
+
+# When ever we are using relational operators(<,<=,>,>=) between list object, only first element comparision will be performed.
+x=[50,20,30]
+y=[40,50,60,100,200]
+print(x>y) True
+print(x>=y) True
+print(x<y) False
+print(x<=y) False
+
+# Membership operators: (in & not in) We can weather the element is the  member of the list or not by using membership operators.
+n=[10,20,30,40]
+print (10 in n)
+print (10 not in n)
+print (50 in n)
+print (50 not in n)
+
+# clear(): It is used to clear all the elements of the list.
+n=[10,20,30,40]
+print(n)   #[10, 20, 30, 40]
+n.clear()
+print(n)   #[]
+
+# Nested List: We can take one list inside another list. Such type of list is called nested list.
+1. n=[10,20,[30,40]]
+print(n)
+print(n[0])
+print(n[2])
+print(n[2][0])
+print(n[2][1])
+
+# Nested List as Matrix: In Python we can represent matrix by using nested lists.
+n=[[10,20,30],[40,50,60],[70,80,90]]
+
+
+
+
+
+
+
+
+
+
+
+
 '''
 
 
@@ -835,32 +1000,7 @@ print(len(found))
 j=string.count('u')
 print(j)
 
-# Generator: 
--------------
-
-# Generator-Function: It is defined like a normal function but when ever it needs to generate a value it does with key Yield key word rather then return.
-If body of a function contains yield then automatically it becomes generator function.
-
-def simpleGeneratorFun(): 
-    yield 1            
-    yield 2            
-    yield 3            
-for value in simpleGeneratorFun():  
-    print(value) 
-   
-# Generator Object: Generator function returns a generator object. Generator object are used either by calling the next method on the generator object or using the generator object in "for in" loop. 
-def simpleGeneratorFun(): 
-    yield 1
-    yield 2
-    yield 3
-   
-# x is a generator object 
-x = simpleGeneratorFun() 
-  
-# Iterating over the generator object using next 
-print(x.next()); # In Python 3, __next__() 
-print(x.next()); 
-print(x.next()); 
+# Generator
 
 # To Generate first n numbers from Generator:
 
@@ -1286,3 +1426,8 @@ else:
 # file handlingh and its remaining part
 # Math module
 # comman line argument
+
+
+
+
+
