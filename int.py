@@ -698,6 +698,377 @@ print(n[2][1])
 
 # Nested List as Matrix: In Python we can represent matrix by using nested lists.
 n=[[10,20,30],[40,50,60],[70,80,90]]
+for i  in n:
+    print(i)
+for i in range(len(n)):
+    for j in range(len(n[i])):
+        print(n[j][i],end=' ')
+    print()
+
+# List Comprehensions: It is very easy and compact way to create list objects from any iterable objects (like list, tuple, dictionary, range etc) based on some condition.
+Syntex: list=[expression for item in list if condition] 
+list=[x*x for x in range(1,11)]
+print(list)
+s=[2**x for x in list]
+print(s)
+e=[x for x in list if x%2==0]
+print(e)
+words=["Bala" ,"Tala","Sala","Oala"]
+T=[w[0] for w in words]
+print(T)
+
+l1=[10,20,30,40,50]
+l2=[40,50,60,70,80]
+l3=[i for i in l2 if i not in  l1]
+print(l3)   # [60, 70, 80]
+l4=[i for i in l2 if i in l1]
+print(l4)    # [40, 50]
+
+# Q. Write a program to display unique vowels present in the given word?
+v=["a","e","i","o","u"]
+s=input("Enter String:")
+f=[]
+for i in s:
+    if i in v and i not in f:
+        f.append(i)
+print(f)
+
+# Tuple Data Structure: 
+#------------------------
+# 1.Tuple is same as the list except that it is immutable. i.e. once we create a tuple object, we cannot perform any change in that object. Hence Tuple is read only version of list
+# 2. If our data fixed never changes then we should go for Tuple.
+# 3.Insertion order is preserved.
+# 4.Duplicates are allowed.
+# 5.Heterogeneous objects are allowed.
+# 6.We can preserve insertion order and we can differentiate duplicate object by using index. Hence indexing will play very  important role in tuple also.
+# 7.We can represent Tuple element within parenthesis and with comma seperator. Parenthesis are optional but recommended to use.
+
+# Tuple creation by using tuple() function:
+T=tuple([10,20,30,40,50])
+print(T)
+
+# Accessing elements of tuple:
+# 1. By using indexing
+t=(10,20,30,40,50,60)
+print(t[0]) #10
+print(t[-1]) #60
+print(t[100]) IndexError: tuple index out of range
+
+# 2. By using slice operator.
+t=(10,20,30,40,50,60)
+print(t[2:5])
+print(t[2:100])
+print(t[::2])
+
+# Mathematical operator for tuple:
+# 1.Concatnation operator (+):
+t1=(10,20,30)
+t2=(40,50,60)
+t3=t1+t2
+print(t3) # (10,20,30,40,50,60)
+ 
+2. Multiplication operator or repetition operator:
+t1=(10,20,30)
+t2=t1*3
+print(t2) #(10,20,30,10,20,30,10,20,30)
+
+# Important functions in tuple:
+# 1. len():To return the number of elements present in the tuple
+t=(10,20,30,40)
+print(len(t)) #4
+
+# 2.count():To return number of occurance of given element in the tuple.
+t=(10,20,30,10,40)
+print(t.count(10)) #2
+
+# 3.index(): Return index of first occurance of given element, If the specified element is not available then we will  get value error.
+t=(10,20,10,10,20)
+print(t.index(10)) #0
+print(t.index(30)) ValueError: tuple.index(x): x not in tuple
+
+# 4. sorted(): To sort element based on default natural sorting order.
+t=(40,10,30,20)
+t1=sorted(t)
+print(t1)
+print(t)
+# Rerversed Order:
+t=(40,10,30,20)
+t1=sorted(t,reverse=True)
+print(t1)
+
+# 5.max() and min() functions: To return the min nad max value based on the default natural sorting order.
+t=(40,10,30,20)
+print(min(t)) #10
+print(max(t)) #40
+
+# Tuple Packing and Unpacking:
+# We can create a tuple by packing a group of variables.
+a=10
+b=20
+c=30
+d=40
+t=a,b,c,d
+print(t)
+print(type(t)) # Here a,b,c,d are packed int a tuple. This is nothing but tuple packing.
+
+# Tuple unpacking is the reverse process of tuple packing.
+# We can unpack a tuple and assign it value to the different variables.
+
+t=(10,20,30,40)
+a,b,c,d=t
+print("a=",a,"b=",b,"c=",c,"d=",d)          # a= 10 b= 20 c= 30 d= 40 Note: At the time of tuple unpacking the number of variables and number of values should be same. ,otherwise we will get ValueError.
+
+# Tuple Comprehension is not supported by Python.
+t= ( x**2 for x in range(1,6))  #Here we are not getting tuple object and we are getting generator object.
+print(type(t))
+for x in t:
+    print(x)
+# Q. Write a program to take a tuple of numbers from the keyboard and print its sum and average?
+t=eval(input("Enter Tuple element:"))
+tupl=tuple(t)
+print(tupl)
+l=len(tupl)
+sum=0
+for i in tupl:
+    sum=sum+i
+print(sum)
+average=sum/l
+print(average)
+
+
+Set Data structure:
+#--------------------
+# 1.If we want to represent a group of unique values as a single entity then we should go for set.
+# 2.Duplicates are not allowed. 
+# 3.Insertion order is not preserved but we can sort the element
+# 4.Indexing and slicing are not allowed for the set.
+# 5.Heterogeneous elements are allowed for the set.
+# 6.Set objects are mutable. i.e once we create a set object we can perform any changes in that object based on our requirement.
+
+# Creating set object with set() function:
+s=set(range(1,10))
+print(s)        # Note: While creating empty set we have to take special care. Compulsory we should use set() function.
+
+# Important functions in set:
+# 1.add():To add item x to the set.
+s={10,20,30}
+s.add(40)
+print(s)
+
+# 2.update(x,y,z): To add multiple items to set. Arguments are not individual elements and these are iterable objects like list range etc.
+All elements present in the given iterable object will be added to the set.
+s={10,20,30}
+l=[40,50,60,10]
+s.update(l,range(5))
+print(s)
+
+# 3.copy(): Return copy of the set. It is cloned object.
+s={10,20,30}
+s1=s.copy()
+print(s1)
+print(id(s))
+print(id(s1))
+
+# 4.pop(): It removes and return some random element of the set.
+s={10,20,30,40,50}
+print(s.pop())      #40
+print(s)            #{10, 50, 20, 30}
+
+# 5.remove(x): It removes the specified element from the set. If specified element is not present in the set then we will get KeyError.
+s={40,10,30,20}
+s.remove(30)
+print(s) # {40, 10, 20}
+s.remove(50) ==>KeyError: 50
+
+# 6.discard():It removes the specified element from the set. If the specified element is not present in the set then it wont throw any error.
+s={10,20,30}
+s.discard(10)
+print(s) ===>{20, 30}
+s.discard(50)
+print(s) ==>{20, 30}
+
+# 7.clear(): To remove all elements of the set.
+s={10,20,30,40}
+print(s)
+s1.clear()
+print(s1)
+
+# Mathematical oprations on the set:
+# 1.union(): Syntex: x.union(y) or x|y: We can use this function to return all the elements present in both sets.
+x={10,20,30,40}
+y={30,40,50,60}
+print(x.union(y))
+print(x|y)
+
+# 2.intersection(): x.intersection(y) or x&y: Return common element present in both x and y.
+x={10,20,30,40}
+y={30,40,50,60}
+print(x&y)
+print(x.intersection(y))
+
+# 3.difference(): x.difference(y) or x-y: Returns the elements present in x but not in y.
+x={10,20,30,40}
+y={30,40,50,60}
+print(x-y)
+print(x.difference(y))
+
+# 4.symmetric difference(): x.symmetric_diffference(y) or x^y: Returns elements present in either x or y but not in both.
+x={10,20,30,40}
+y={30,40,50,60}
+print(x^y)
+print(x.symmetric_difference(y))
+
+# Membership operator(in, not in):
+s=set("durga")
+print(s)
+print('d' in s)
+print('z' in s)
+
+# Set Comprehension: Set comprehension is possible.
+s={x for x in range(5)}
+print(s)
+s={x*x for x in range(5)}
+print(s)
+
+# Set objects do not satisfies slicing and indexing.
+s={10,20,30,40}
+print(s[0]) ==>TypeError: 'set' object does not support indexing
+print(s[1:3]) ==>TypeError: 'set' object is not subscriptable
+
+# Q.Write a program to eliminate duplicates present in the list?
+l=eval(input("Enter list element:"))
+s=set(l)
+lst=list(s)
+print(lst)
+
+lst=eval(input("enter list element"))
+f=[]
+for i in lst:
+   if i not in f:
+       f.append(i)
+print(f)
+
+# Q. Write a program to print different vowels present in the given word?
+String=set(input("Enter string"))
+v={"a","e","i","o","u"}
+s=String.intersection(v)
+print(s)
+
+# Dictionary Data Structure:
+#-----------------------------
+# 1.If we want to represent a group of objects as a key value pairs then we should go for key value pair.
+# 2.Duplicate keys are not allowed but values can be duplicate.
+# 3.insertion order is not preserved.
+# 4.Dictionaries are mutable.
+# 5.Dictionaries are dynamic.
+# 6.indexing and slicing concept are not applicable.
+
+# Creating dictionary with dict() or d={}:
+d={}
+d["a"]=100
+d[25]="RS"
+d["jay"]="Kumar"
+d["b"]=500
+print(d)
+
+# How to access data from the Dictionary. We can access data by using keys.
+d={100:'durga' ,200:'ravi', 300:'shiva'}
+print(d[100]) #durga
+print(d[300]) #shiva   
+print(d[400]) # KeyError: 400
+# If the specified key is not available then we will get KeyError but we can prevent this by checking whether key is already available or not by using
+if 400 in d:
+print(d[400])
+
+# Q. Write a program to enter name and percentage marks in a dictionary and display information on the screen.
+r={}
+n=int(input("Enter Number Of Student:"))
+i=0
+while i<=n:
+    name = input("Enter name:")
+    marks=int(input("Enter marks:"))
+    r[name]=marks
+    i=i+1
+print(r)
+for k in r:
+    print("Name:",k,"Marks:",r[k])
+
+# How to update dictionary: d[key]=Value: If key is not available then a new entry will be added to the dictionary with specified key value pair.
+# If the key is already available then old value will be replaced with new value.
+d={100:"durga",200:"ravi",300:"shiva"}
+print(d)
+d[400]="pavan"
+print(d)
+
+# How to delete elements form the dictionary: del d[key]:It deletes entry associated with the specified key. If key is not available then it will throw key error 
+d={100:"durga",200:"ravi",300:"shiva"}
+print(d)
+del d[100]
+print(d)
+# del d[400]     #KeyError: 400
+
+# clear():To remove all entries from the dictionary.
+d={100:"durga",200:"ravi",300:"shiva"}
+print(d)
+d.clear()
+print(d)
+
+# del d: To delete total dictionary. Now we cannot access d
+d={100:"durga",200:"ravi",300:"shiva"}
+print(d)
+del d
+print(d)
+
+# Important functions of dictionary:
+
+# 1. dict(): To create a dictionary
+d=dict()     #===>It creates empty dictionary
+d=dict({100:"durga",200:"ravi"})        #==>It creates dictionary with specified elements
+d=dict([(100,"durga"),(200,"shiva"),(300,"ravi")])      #==>It creates dictionary with the given list of tuple elements
+
+# 2.len():Returns the number of items in the dictionary
+
+# 3.get(): To get the value associated to the key.
+# d.get(key): If key is available then returns the corresponding value other wise returns None. It wont raise any error.
+# d.get(key,default): 
+print(d.get(100)) ==durga
+print(d.get(400)) ==>None
+print(d.get(100,"Guest")) ==durga
+print(d.get(400,"Guest")) ==>Guest 
+
+# 5.pop(): d.pop(key): It removes the entry associated with the specified key and returns the corresponding value. If the specified key is not available then we will get key error.
+d={100:"durga",200:"ravi",300:"shiva"}
+print(d.pop(100))
+print(d)
+print(d.pop(400))
+
+# 6.popitem(): It removes an arbitrary item(key-value) from the dictionary and return it.
+d={100:"durga",200:"ravi",300:"shiva"}
+print(d)
+print(d.popitem())
+print(d)
+
+# 7.keys(): It returns all the keys associated with dictionary.
+d={100:"durga",200:"ravi",300:"shiva"}
+print(d.keys())
+
+# 8.Values(): It returns all the values associated with dictionary.
+d={100:"durga",200:"ravi",300:"shiva"}
+print(d.values())
+
+# 9.items(): It returns list of tuples representing key-value pair.[(k,v),(k,v),(k,v)]
+d={100:"durga",200:"ravi",300:"shiva"}
+for k,v in d.items():
+    print(k,"----",v)
+# 10.copy(): To create exactly duplicate dictionary(cloned copy).
+d = {100: "durga", 200: "ravi", 300: "shiva"}
+d1=d.copy()
+print(d1)
+print(id(d))
+print(id(d1))
+
+# 11.setdefault():
+
 
 
 
@@ -1357,7 +1728,7 @@ finally:
 
 # Finally block:
 # It is not recommended to maintain clean up code inside except block, because if there is no exception then except block won't be executed.
-# Hence we required some place to maintain clean up code which should be executed always irrespective of whether exception raised or not raised and whether exception handled or not handled. Such type of best place is nothing but finally block.
+# Hendce we required some place to maintain clean up code which should be executed always irrespective of whether exception raised or not raised and whether exception handled or not handled. Such type of best place is nothing but finally block.
 # In this particular case finally won't be executed. Whenever we are using os._exit(0) function then Python Virtual Machine itself will be shutdown.
 
 # Nested try-except-funally block:
