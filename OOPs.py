@@ -21,13 +21,13 @@ class student:
 t=student("Ram", 313, 73)
 t.talk()
 
-# Self Variable:Self is the default variable which is always pointing to current object. By using self we can access instance variables and instance methods of object
+# Self Variable:Self is the default variable which is always pointing to current object. By using self we can access instance variables and instance methods of object.
 # Self should be first parameter inside constructorc: def __init__(self):
 # Self should be first parameter inside instance methods: def talk(self):
 
 #Constructor Concept:
 # The name of a constructor should be __init__(self):
-# Constructor will be executed atomatically at the time of oobject creation.
+# Constructor will be executed automatically at the time of object creation.
 # The main purpose of constructor is to declare and initialise instance variables.
 # Per object constructor will be executed only once.
 # Constructor will take atleast one argument(self).
@@ -107,7 +107,7 @@ print(Test.__dict__) #-------> To access Static variable
 # How to delete static variables of a class: del classname.variablename  & del cls.variablename
 
 # Local variables:
-#Sometimes to meet temporary requirements of programmer,we can declare variables inside a method directly,such type of variables are called local variable or temporary variables.
+# Sometimes to meet temporary requirements of programmer,we can declare variables inside a method directly,such type of variables are called local variable or temporary variables.
 # Local variables will be created at the time of method execution and destroyed once method completes.
 # Local variables of a method cannot be accessed from outside of method.
 
@@ -168,7 +168,7 @@ for i in range(number_of_student):
 
 # Getter Method: Getter methods can be used to get values of the instance variables. Getter methods also known as accessor methods.
 #syntax: def getVariable(self):
-             #return self.variable
+             #return self.va riable
 # Demo Program:
 class Student:
     def setName(self, name):
@@ -194,8 +194,8 @@ for i in range(NoofSnametudents):
 
 # Class method:
 
-# Inside method implimentation if we are using class variabls(static variables) then such type of method is class method.
-# We can declare class method explicitly by using @class method decorator.
+# Inside method implementation if we are using class variabls(static variables) then such type of method is class method.
+# We can declare class method explicitly by using @classmethod decorator.
 # for class method we should provide cls variable at time of declaration.
 # We can call classmethod by using classname or object reference variable.
 # Demo Program:
@@ -329,7 +329,7 @@ f1(h)
 g=Dog()
 f1(g)
 
-# Overloading: In operator overloading we have magic method for each operator
+# Operator Overloading: In operator overloading we have magic method for each operator
 # Demo program for '+' operator is __add__():
 class Math:
     def __init__(self, pages):
@@ -364,7 +364,7 @@ s.sum(4,8)
 s.sum(4)
 
 # Method Overridding:
-#What ever members available in the parent class are bydefault available to the child class through inheritance. If the child class not satisfied with parent class implementation then child class is
+# What ever members available in the parent class are by default available to the child class through inheritance. If the child class not satisfied with parent class implementation then child class is
 # allowed to redefine that method in the child class based on its requirement. This concept is called overriding.
 # Demo:
 class Parent:
@@ -541,6 +541,8 @@ c.func4()
 # Important Points:
 # 1. Abstract class can have both concrete method as well as abstract method.
 # 2. Abstract class cant be instantiated so it is not possible to create objects of an abstract class.
+-4]w
+
 # 3. Generally abstract method defined in abstract class dont have any body but it is possible to have abstract method with implementation in abstarct class. Any sub class deriving from sub abstract class still needs to provide implimentation for such abstract class.
 # 4. If an abstract method is not implemented by derived class python throws error.
 
