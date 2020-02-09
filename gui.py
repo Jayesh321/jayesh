@@ -37,3 +37,10 @@
 # git remote set-url origin git@github.com:Jayesh321/jayesh.git ------->To change Url to get read and write access--->origin  git@github.com:Jayesh321/jayesh.git (fetch),  origin  git@github.com:Jayesh321/jayesh.git (push)
 # git push -u origin master---->to push the master branch on remote repo
 #
+
+# Initial setup
+* `git init`
+* `git remote add origin https://github.com/Jayesh321/vFive.git`
+  
+# Clonig
+* `git clone https://github.com/Jayesh321/vFive.git`
