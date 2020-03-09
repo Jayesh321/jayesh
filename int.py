@@ -1,5 +1,9 @@
 # Python is a general purpose high level programming language.
 '''
+Memory management in Python involves a private heap containing all Python objects and data structures.
+The management of this private heap is ensured internally by the Python memory manager.
+The Python memory manager has different components which deal with various dynamic storage management aspects, like sharing, segmentation, preallocation or caching.
+'''
 # Identifires:
 #------------------------------
 # A name in python is called identifire.It can be class name or function name or module name or variable name.--->a=10
@@ -1557,6 +1561,27 @@ l=re.split(",","sunny,bunny,chinny,vinny,pinny")
 print(l)
 for t in l:
     print(t)
+    
+import re  
+  
+# Example string  
+s = 'Hello from shubhamg199630@gmail.com to priya@yahoo.com about the meeting @2PM'
+  
+# \S matches any non-whitespace character 
+# @ for as in the Email 
+# + for Repeats a character one or more times 
+lst = re.findall('\S+@\S+', s)
+
+'''
+str='abc@example.com'
+match=re.search(r'\w+@\w+',str) #return abc@example.com
+num=555-555-555
+match_num=re.search(r'^(\d{3}--\d{3}--\d{4})
+,num) #return 555-555-5555
+'''
+
+# Printing of List 
+print(lst) 
 
 # Note: If we want to ignore case then we have to pass 3rd argument re.IGNORECASE for search() function.
 # Eg: res = re.search("easy$",s,re.IGNORECASE)
@@ -1783,11 +1808,110 @@ elif age<18:
     raise TooOldException("You are too old to get married you will not get match")
 else:
     print("You will get details on your email")
+    
+    
+# The iterator protocol for Python declares that we must make use of two functions to build an iterator- iter() and next().
+# iter()- To create an iterator
+# next()- To iterate to the next element
+a=iter([2,4,6,8,10])
+print(next(a))
+print(next(a))
+print(next(a))
+
+# What do you mean by *args and **kwargs?
+# In cases when we don’t know how many arguments will be passed to a function, like when we want to pass a list or a tuple of values, we use *args.
+
+def func(*args):
+   for i in args:
+       print(i)
+func(3,2,1,4,7)
+
+# **kwargs takes keyword arguments when we don’t know how many there will be.
+
+def func(**kwargs):
+   for i in kwargs:
+       print(i,kwargs[i])
+func(a=1,b=2,c=7)
+
+'''What are generators in Python?
+Simply speaking, a generator is a function that returns an object (iterator) which we can iterate over (one value at a time).
+
+It is fairly simple to create a generator in Python. It is as easy as defining a normal function with yield statement instead of a return statement.
+
+If a function contains at least one yield statement (it may contain other yield or return statements), it becomes a generator function. Both yield and return will return some value from a function.
+
+The difference is that, while a return statement terminates a function entirely, yield statement pauses the function saving all its states and later continues from there on successive calls.
+'''
+'''
+def my_gen():
+    n = 1
+    print('This is printed first')
+    # Generator function contains yield statements
+    yield n
+
+    n += 1
+    print('This is printed second')
+    yield n
+
+    n += 1
+    print('This is printed at last')
+    yield n
+# It returns an object but does not start execution immediately.
+a = my_gen()
+# We can iterate through the items using next().
+next(a)
+next(a)
+next(a)
+def rev_str(my_str):
+    length = len(my_str)
+    for i in range(length - 1,-1,-1):
+        yield my_str[i]
+
+# For loop to reverse the string
+# Output:
+# o
+# l
+# l
+# e
+# h
+for char in rev_str("hello"):
+     print(char)
+my_list = [1, 3, 6, 10]
+
+a = (x**2 for x in my_list)
+# Output: 1
+print(next(a))
+print(next(a))
+print(next(a))
+
+def add_without_plus_operator(a, b):
+    while b != 0:
+        data = a & b
+        a = a ^ b
+        b = data << 1
+    return a
+print(add_without_plus_operator(5, 10))
+print(add_without_plus_operator(-20, 10))
+print(add_without_plus_operator(-10, -20))    
+'''
+
+'''
+In Python, functions are the first class objects, which means that –
+Functions are objects; they can be referenced to, passed to a variable and returned from other functions as well.
+Functions can be defined inside another function and can also be passed as argument to another function.
+
+A decorator is a design pattern in Python that allows a user to add new functionality to an existing object without modifying its structure. 
+Decorators are usually called before the definition of a function you want to decorate. 
+In Decorators, functions are taken as the argument into another function and then called inside the wrapper function.
 '''
 
 
 
 
+
+#RE to write email
+#memory management
+#Comprihensions
 # Decorator
 # Destructorm
 # active count and rest part of threading
