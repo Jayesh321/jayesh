@@ -1896,6 +1896,8 @@ print(add_without_plus_operator(-10, -20))
 '''
 
 '''
+Decorators:
+------------
 In Python, functions are the first class objects, which means that –
 Functions are objects; they can be referenced to, passed to a variable and returned from other functions as well.
 Functions can be defined inside another function and can also be passed as argument to another function.
