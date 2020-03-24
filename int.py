@@ -1,8 +1,11 @@
 # Python is a general purpose high level programming language.
 '''
-Memory management in Python involves a private heap containing all Python objects and data structures.
-The management of this private heap is ensured internally by the Python memory manager.
-The Python memory manager has different components which deal with various dynamic storage management aspects, like sharing, segmentation, preallocation or caching.
+Q6. How is memory managed in Python?
+Ans:
+Memory management in python is managed by Python private heap space. All Python objects and data structures are located in a private heap.
+The programmer does not have access to this private heap. The python interpreter takes care of this instead.
+The allocation of heap space for Python objects is done by Python’s memory manager. The core API gives access to some tools for the programmer to code.
+Python also has an inbuilt garbage collector, which recycles all the unused memory and so that it can be made available to the heap space.
 '''
 # Identifires:
 #------------------------------
@@ -1896,8 +1899,6 @@ print(add_without_plus_operator(-10, -20))
 '''
 
 '''
-Decorators:
-------------
 In Python, functions are the first class objects, which means that –
 Functions are objects; they can be referenced to, passed to a variable and returned from other functions as well.
 Functions can be defined inside another function and can also be passed as argument to another function.
