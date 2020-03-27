@@ -1,0 +1,35 @@
+Reference video: https://www.youtube.com/watch?v=HXV3zeQKqGY&t=8633s
+-----------------------------------------------------------------------
+# CREATE DATABASE menagerie; ------> To create Database
+# USE menagerie; ------> To select the created data base
+# CREATE TABLE employee(emp_id INT PRIMARY KEY, first_name VARCHAR(40), birth_date DATE, salary INT); ------> To create Table
+# DROP TABLE employee; -----> Delete Table
+# ALTER TABLE employee ADD FOREIGN KEY(branch_id) REFERENCES branch(branch_id) ON DELETE SET NULL; -----> To alter the table heading
+# INSERT INTO employee VALUES(100, Jayesh, 30/03/1992, 10000); -----> To insert data
+# UPDATE employee SET first_name = kumar WHERE emp_id =100; ------> To update data
+# SELECT * FROM employee; -----> To check entire data present in table
+# SELECT * FROM employee ORDER BY salary DESC; -----> To get data ordered in decending order
+# SELECT * FROM employee ORDER BY sex AND name; ----->To get data ordered in sex and then name wise(alphabetical order)
+# SELECT * FROM employee LIMIT 5; ------> To get record of 5 employee
+# SELECT first_name, last_name FROM employee; ------> To get selected column from the table
+# SELECT first_name AS forename, last_name AS surname FROM employee; ------> Aliasing of the columns
+# SELECT DISTINCT sex FROM employee; or SELECT DISTINCT branch_id FROM employee; -----> To get different types of group present in column
+# SELECT COUNT(emp_id) FROM employee; ------> To count number of employee present in table
+# SELECT COUNT(emp_id) FROM employee WHERE sex = 'F' AND birth_date > '1970-01-01'; ------> To count with some condition
+# SELECT AVG(salary) FROM employee; ------> To calculate average of salary column
+# SELECT AVG(salary) FROM employee WHERE salary>75000 AND SEX = 'M'; ------>To calculate average of salary with some condition
+# SELECT SUM(salary) FROM employee; -----> To calculate (sum) of salary column
+# SELECT COUNT(sex) FROM employee GROUP BY sex; To count number of employees by group wise
+# SELECT SUM(total_sales), emp_id FROM works_with GROUP BY emp_id; ------> To find how much each employee sold based on emp_id column
+# SELECT SUM(total_sales), client_id FROM works_with GROUP BY client_id; -----> To find how much each client sold based on client_id column
+
+Wildcard: % = any number of characters, _(hifen) = stands for one character, LIKE -----> It is a key word in SQL
+---------
+# SELECT * FROM client WHERE client_name LIKE '%LLC'; ----->To find data which ends with LLC
+# SELECT * FROM branch_supplier WHERE supplier_name LIKE '% Label%'; ----->To find with exact match between two % sign
+# SELECT * FROM employee WHERE birth_day LIKE '____-10%'; -----> To find any emp took birth in october
+# SELECT * FROM client WHERE client_name LIKE '%school%'; -----> To find a client from school
+Union: to combine two query into single query(where number of column selected should be same)
+------
+# SELECT first_name FROM employee UNION SELECT branch_name FROM branch; -----> To get two column from f=different table together
+#
