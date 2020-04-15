@@ -39,6 +39,12 @@
 #
 
 # Initial setup
+if we get fatel error: "fatal: remote origin already exists"
+  then run this command: 
+    -->git remote rm origin
+    -->git remote add origin https://github.com/Jayesh321/vFive.git`
+    -->git push -u origin master
+
 * `git init`
 * `git remote add origin https://github.com/Jayesh321/vFive.git`
   
