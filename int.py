@@ -1182,6 +1182,9 @@ def max(x,y,z):
 print(max(3,5,7))
 
 #Lambda function.
+A lambda function is a small anonymous function.
+A lambda function can take any number of arguments, but can only have one expression.
+lambda arguments : expression
 max=lambda x,y,z:x if x>y and x>z else y if y>z else z
 print("Maximum of three numbers:",max(5,9,8))
 
