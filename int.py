@@ -999,6 +999,19 @@ while i<=n:
 print(r)
 for k in r:
     print("Name:",k,"Marks:",r[k])
+ 
+To make dictonary from list making j of jayesh as key and name as value:
+--------------------------------------------------------------------------------
+ l=['jayesh', 'kumar']
+r={}
+lng=len(l)
+print(lng)
+j=0
+while j<lng:
+    f=l[j][0]
+    r[f]=l[j]
+    j=j+1
+print(r)
 
 # How to update dictionary: d[key]=Value: If key is not available then a new entry will be added to the dictionary with specified key value pair.
 # If the key is already available then old value will be replaced with new value.
