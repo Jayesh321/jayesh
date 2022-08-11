@@ -1012,6 +1012,18 @@ while j<lng:
     r[f]=l[j]
     j=j+1
 print(r)
+to make dictnory from 2 lists:
+-------------------------------------------
+l=['jayesh', 'kumar']
+l1=[1,2]
+r={}
+lng=len(l)
+j=0
+while j<lng:
+    f=l1[j]
+    r[f]=l[j]
+    j=j+1
+print(r)
 
 # How to update dictionary: d[key]=Value: If key is not available then a new entry will be added to the dictionary with specified key value pair.
 # If the key is already available then old value will be replaced with new value.
