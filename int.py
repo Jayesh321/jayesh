@@ -1592,9 +1592,20 @@ l=re.split(",","sunny,bunny,chinny,vinny,pinny")
 print(l)
 for t in l:
     print(t)
+---------------------------------------------------------------------------------------------------  
+import re
+f=open('jay.txt', 'r')
+s=f.read()
+match=re.findall('\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}',s)
+if match!=None:
+    print("match found",match)
+else:
+    print("No match found")
+f.close()
+print('done')
+--------------------------------------------------------------------------------------
     
 import re  
-  
 # Example string  
 s = 'Hello from shubhamg199630@gmail.com to priya@yahoo.com about the meeting @2PM'
   
